@@ -1,0 +1,41 @@
+.scope {
+    --cell: 24;
+    --xaxis:12;
+    --yaxis: 12;
+    --dsize: 12;
+    --dcolor: #369;
+    --size: 100%;
+    position: relative;
+    width: var(--size);
+    height: 0;
+    padding-top: var(--size);
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+    background-image:
+      linear-gradient(#0000 calc(var(--yaxis) * 100% / var(--cell) - 1px), #0008 0 calc(var(--yaxis) * 100% / var(--cell) + 1px), transparent 0),
+      linear-gradient(to right, #0000 calc(var(--xaxis) * 100% / var(--cell) - 1px), #0008 0 calc(var(--xaxis) * 100% / var(--cell) + 1px), transparent 0),
+      repeating-linear-gradient(#0002 0 0.5px, #0000 0 calc(100% / var(--cell) - 0.5px), #0002 0 calc(100% / var(--cell))),
+      repeating-linear-gradient(to right, #0002 0 0.5px, #0000 0 calc(100% / var(--cell) - 0.5px), #0002 0 calc(100% / var(--cell)));
+  }
+  
+  .scope.no-overflow {
+    overflow: hidden;
+  }
+  
+  .css-csss .dot {
+    --translationUnit: 100% / var(--cell);
+    --translationX: var(--translationUnit) * var(--xaxis);
+    --translationY: var(--translationUnit) * var(--yaxis);
+    /* Vertical is "flipped" in CSS: higher values go down! Do negative! */
+    --y: calc(var(--translationY) - var(--translationUnit) * var(--function));
+    width: calc(var(--dsize) * 1px);
+    height: calc(var(--dsize) * 1px);
+    background: var(--dcolor);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: calc(var(--translationX) + var(--x) * var(--translationUnit));
+    top: var(--y);
+  }
+
+  
