@@ -22,20 +22,6 @@
     overflow: hidden;
   }
   
-  .css-csss .dot {
-    --translationUnit: 100% / var(--cell);
-    --translationX: var(--translationUnit) * var(--xaxis);
-    --translationY: var(--translationUnit) * var(--yaxis);
-    /* Vertical is "flipped" in CSS: higher values go down! Do negative! */
-    --y: calc(var(--translationY) - var(--translationUnit) * var(--function));
-    width: calc(var(--dsize) * 1px);
-    height: calc(var(--dsize) * 1px);
-    background: var(--dcolor);
-    border-radius: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: calc(var(--translationX) + var(--x) * var(--translationUnit));
-    top: var(--y);
-  }
+
 
   
